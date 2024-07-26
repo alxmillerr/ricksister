@@ -10,6 +10,8 @@
             text-align: center;
             margin-top: 50px;
             position: relative;
+            overflow: hidden;
+            height: 100vh;
         }
         .hidden {
             display: none;
@@ -17,11 +19,13 @@
         .message {
             font-size: 2em;
             font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
         }
         .stars {
-            font-size: 2em;
-            color: gold;
-            animation: blink 1s infinite;
             position: absolute;
             top: 0;
             left: 0;
@@ -32,6 +36,8 @@
         }
         .star {
             position: absolute;
+            font-size: 2em;
+            color: gold;
             animation: blink 1s infinite;
         }
         @keyframes blink {
@@ -58,7 +64,7 @@
 
         function createStars() {
             const starsDiv = document.getElementById('starsDiv');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 100; i++) {
                 const star = document.createElement('div');
                 star.textContent = '★';
                 star.classList.add('star');
