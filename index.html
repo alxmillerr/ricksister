@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
+            position: relative;
         }
         .hidden {
             display: none;
@@ -20,6 +21,17 @@
         .stars {
             font-size: 2em;
             color: gold;
+            animation: blink 1s infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
             animation: blink 1s infinite;
         }
         @keyframes blink {
@@ -33,13 +45,29 @@
     <button id="showMessageButton">Oi mor, clica aqui</button>
     <div id="messageDiv" class="hidden">
         <p class="message">Tô por ti, irmã, vamos sair hoje?</p>
-        <p class="stars">★ ★ ★ ★ ★</p>
     </div>
+    <div id="starsDiv" class="hidden stars"></div>
 
     <script>
         document.getElementById('showMessageButton').addEventListener('click', function() {
+            document.getElementById('showMessageButton').classList.add('hidden');
             document.getElementById('messageDiv').classList.remove('hidden');
+            document.getElementById('starsDiv').classList.remove('hidden');
+            createStars();
         });
+
+        function createStars() {
+            const starsDiv = document.getElementById('starsDiv');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.textContent = '★';
+                star.classList.add('star');
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 2 + 0.5}s`;
+                starsDiv.appendChild(star);
+            }
+        }
     </script>
 </body>
 </html>
