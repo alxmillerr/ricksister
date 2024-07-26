@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .stars {
+            font-size: 2em;
+            color: gold;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="showMessageButton">Oi mor, clica aqui</button>
+    <div id="messageDiv" class="hidden">
+        <p class="message">Tô por ti, irmã, vamos sair hoje?</p>
+        <p class="stars">★ ★ ★ ★ ★</p>
+    </div>
+
+    <script>
+        document.getElementById('showMessageButton').addEventListener('click', function() {
+            document.getElementById('messageDiv').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
